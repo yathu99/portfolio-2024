@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+--purple-blue: #c4d6ffff;
+--lavender: #d7d0fbff;
+--violet: #e2ccf5ff;
+--purple: #decef8ff;
+--pink:#f7c7dbff;
+--mehndi: #dcd9acff;
+--mint:#bde2c0ff;
+--orange: #f9cbb6ff;
+--beige: #e7d5aaff;
+--halfsec:0.5s;
+--quartsec:0.25s;
+}
+
+
+html{
+    background: linear-gradient(#05060eff,#5f6489ff);
+    background-repeat: no-repeat;
+}
+
+body{
+    background: rgb(0,0,0,0);
+}

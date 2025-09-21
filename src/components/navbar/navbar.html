@@ -1,0 +1,38 @@
+@if (homeNav()) {
+<nav class="nav-container">
+  <div>
+    <div class="logo">
+      My App
+    </div>
+    
+  </div>
+  <div class="right-elements">
+    <div [ngClass]="['themeToggle',darkTheme()?'switchDay':'']" (click)="darkTheme.set(!darkTheme())">
+      <i [ngClass]="['fa-lg', 'fa-solid', darkTheme()?'fa-moon':'fa-sun' ]"></i>
+    </div>
+      <a class="fa-2x fa-brands fa-github" href="https://github.com/yathu99" rel="noopener" target="_blank"></a>
+      <a class="fa-2x fa-brands fa-discord" href="https://discordapp.com/users/426323965305290752" rel="noopener" target="_blank"></a>
+      <a class="fa-2x fa-brands fa-linkedin" href="https://www.linkedin.com/in/yatharth-verma-a4318b173/" rel="noopener" target="_blank"></a>
+    </div>
+</nav>  
+}
+@else {
+<nav class="nav-container">
+  <div>
+    <div class="logo">
+      My App
+      
+      <select class="text-light border border-danger bg-dark p-1 ml-5" [(ngModel)]="openScreen">
+        @for(option of options;track $index){
+          <option>{{option}}</option>
+        }
+      </select>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li class="top-option">Home</li>
+    <li class="top-option">About</li>
+    <li class="top-option">Contact</li>
+  </ul>
+</nav>
+}

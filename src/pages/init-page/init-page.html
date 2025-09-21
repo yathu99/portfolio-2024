@@ -1,0 +1,11 @@
+<body>
+    <!-- <div id="outer1">
+        \begin &#123; {{data}} &#125;
+    </div> -->
+    <div class="constainer">@for (item of outer_line.split("");track $index ;let ind = $index) {
+        <span class="letters" [ngStyle]="{'top':`${positions[ind].y}px`,'left':`${positions[ind].x}px`, 'position':'absolute','z-index':'99','color':positions[ind].color}">
+            {{item}}
+        </span>
+    }
+    </div>
+</body>
