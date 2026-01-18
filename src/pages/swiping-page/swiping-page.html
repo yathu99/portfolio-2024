@@ -1,1 +1,26 @@
-<p>swiping-page works!</p>
+<div class="fullPage">
+    <div>
+        <div class="d-flex justify-content-center align-items-center card-space">
+            <div #oneCard class="one-card">
+                <strong>{{visibleCards[0].first_name}}</strong>
+                , {{visibleCards[0].age}}
+            </div>
+            <div #twoCard class="two-card">
+                <div class="cover"></div>
+                <strong>{{visibleCards[1].first_name}}</strong>
+                , {{visibleCards[1].age}}
+            </div>
+            <div class="three-card">
+                <div class="cover"></div>
+                <strong>{{visibleCards[2].first_name}}</strong>
+                , {{visibleCards[2].age}}
+            </div>
+            <!-- @for(visibleCards of visiblevisibleCardss;track visibleCards.id; let i=$index){
+            <div class="main-visibleCards" [style.z-index]="visibleCards.id+i">
+                <strong>{{visibleCards.last_name + ', ' +  visibleCards.first_name}}</strong>
+                {{visibleCards.age}}
+            </div>
+        } -->
+        </div>
+    </div>
+</div>

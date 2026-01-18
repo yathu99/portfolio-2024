@@ -15,6 +15,7 @@ import { NgClass } from '@angular/common';
 })
 export class Navbar {
   openScreen:Signal<string> = signal("default");
+  title=signal('BRAINROT')
   options:string[]=[
     "Portfolio Home",
     "Calenderly",

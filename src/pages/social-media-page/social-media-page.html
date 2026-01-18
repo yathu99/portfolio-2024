@@ -1,1 +1,56 @@
-<p>social-media-page works!</p>
+<div class="fullPage">
+    <div class="leftSidebar pr-1">
+        <div style="height:2vh"></div>
+        @for(item of leftList; track item;let i=$index){
+            <span class="text-center py-3">{{item}}</span>
+            @if(i < leftList.length-1){
+                <hr class="mx-4">
+            }
+        }
+        <div style="height:2vh"></div>
+        
+    </div>
+    <div class="row mainFeed pt-5">
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 column vert" >
+            <div class="move" style="animation-delay: 0s;">
+            @for(postData of postDatas[0];track postData.id;){
+            <div #observedDiv>
+            <app-post class="py-1 lop" [postData]="postData"></app-post>
+                <div class="seperator"></div>
+            </div>
+            }
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 column vert">
+            <div class="move" style="animation-delay: 3s;">
+            @for(postData of postDatas[1];track postData.id;let i=$index){
+            <div #observedDiv>
+            <app-post class="py-1 lop" [postData]="postData"></app-post>
+                <div class="seperator"></div>
+            </div>
+            }
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 column vert">
+           <div class="move" style="animation-delay: 6s;">
+            @for(postData of postDatas[2];track postData.id;){
+            <div #observedDiv>
+            <app-post class="py-1 lop" [postData]="postData"></app-post>
+                <div class="seperator"></div>
+            </div>
+            }
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 column vert">
+            <div class="move" style="animation-delay: 9s;">
+            @for(postData of postDatas[3];track postData.id;){
+            <div #observedDiv>
+            <app-post class="py-1 lop" [postData]="postData"></app-post>
+                <div class="seperator"></div>
+            </div>
+            }
+            </div>
+        </div>
+    </div>
+    <div class="rightSidebar pr-3"></div>
+</div>

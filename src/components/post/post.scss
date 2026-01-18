@@ -1,0 +1,146 @@
+.post {
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.commentSection {
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  max-height: 0;
+  overflow: hidden;
+  transform-origin: top;
+  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+  opacity: 0;
+}
+
+/* When the section opens downward */
+.comment-open {
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+.comment-close {
+  animation: slideUp 0.5s ease-in-out forwards;
+}
+
+/* Keyframes for downward expansion */
+@keyframes slideDown {
+  0% {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    max-height: 50vh;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  100% {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  0% {
+    max-height: 50vh;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- POST CONTENT ---- */
+.content {
+  aspect-ratio: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-size: contain;
+}
+
+.avatar {
+  width: 40px;
+  aspect-ratio: 1;
+  border-radius: 60px;
+  background-color: salmon;
+}
+
+.appearLikeCount {
+  animation: showLikes 0.5s ease-in;
+  text-overflow: ellipsis;
+}
+
+@keyframes showLikes {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.user {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.time {
+  font-size: x-small;
+}
+
+.btn {
+  border-radius: 8px;
+  border: solid 2px lightgrey;
+}
+
+textarea {
+  border: solid 1px lightgrey;
+  width: 100%;
+  aspect-ratio: 4;
+  background-color: aliceblue;
+  border-radius: 4px;
+  text-wrap: wrap;
+  resize: none;
+  font-size: small;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+.textOptions {
+  border: solid 1px lightgrey;
+  height: 25px;
+  padding: 0;
+  border-radius: 4px;
+  font-size: smaller;
+  vertical-align: middle;
+  margin: auto;
+  z-index: 1000;
+}
+
+.public-comment {
+  border: solid 1px lightgray;
+  border-radius: 4px;
+  padding: 2px;
+  font-size: smaller;
+}
+
+.comment-avatar {
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background-color: mediumaquamarine;
+  padding-right: 10px;
+}
+
+.main-content {
+  z-index: 1500;
+}
+
+.z-100 {
+  z-index: 100;
+}

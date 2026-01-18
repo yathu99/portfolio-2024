@@ -1,0 +1,96 @@
+.fullPage{
+    height: 100vh;
+    width: 100vw;
+    max-height: 100vh;
+    background: linear-gradient(to right, rgb(190, 41, 41) , black 30% , black 70%, rgb(26, 86, 36) 100%);
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between  ;
+    align-items: center;
+    padding: 20px 0px;
+    overflow: hidden;
+}
+
+.card{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 
+    -1px -1px 0 black,  /* Top-left */
+     1px -1px 0 black,  /* Top-right */
+    -1px  1px 0 black,  /* Bottom-left */
+     1px  1px 0 black;
+    text-align: center;
+    color: antiquewhite;
+    border: solid 3px orange;
+    border-radius: 2vw;
+    // left: calc(50% - 40vh*9/16);
+    // top: calc(50% - 40vh);
+    height: 80vh;
+    aspect-ratio: 9/16;
+}
+
+.one-card{
+    @extend .card;
+    left: calc(50% - 40vh*9/16);
+    top: calc(50% - 40vh);
+    z-index: 700;
+    
+}
+
+.two-card{
+    @extend .card;
+    left: calc(50% - 33vh*9/16);
+    top: calc(50% - 37vh);
+    z-index: 600;
+    background: linear-gradient(wheat,antiquewhite);
+    transition: 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.cover{
+    height:100%;
+    width: 100%;
+    position: absolute;
+    z-index: 650;
+    backdrop-filter: blur(4px);
+    border-radius: 2vw;
+    transition: 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.three-card{
+    @extend .card;
+    left: calc(50% - 26vh*9/16);
+    top: calc(50% - 34vh);
+    z-index: 500;
+}
+
+.accept{
+    overflow: hidden;
+    animation: 1s acceptEntity forwards;
+}
+
+.reject{
+    animation: 1s rejectEntity forwards;
+}
+
+@keyframes acceptEntity {
+    100%{
+        transform: rotateZ(30deg) translateX(150%) scale(0.35);
+        opacity: 0;
+        animation-play-state: paused;
+        display: none;
+    }
+}
+
+@keyframes rejectEntity {
+    100%{
+        transform: rotateZ(-30deg) translateX(-150%) scale(0.35
+        ); 
+        opacity: 0;
+        animation-play-state: paused;
+        display: none;
+    }
+}

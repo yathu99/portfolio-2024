@@ -1,0 +1,97 @@
+<div class="border post col-12 p-2 position-relative">
+  <div class="main-content">
+    <div class="d-flex row px-2">
+      <div class="col-2 p-0 d-flex justify-content-center">
+        <div class="avatar"></div>
+      </div>
+      <div class="col-7 px-2">
+        <div class="user fw-bold">{{ postData().user }}</div>
+        <div class="time text-success">{{ postData().time }} ago</div>
+      </div>
+    </div>
+
+    <div class="title">
+      {{ postData().title }}
+    </div>
+
+    <div class="content">
+      <img [src]="postData().content" alt="img">
+    </div>
+
+    <div class="actions pt-3 col-12">
+      <div class="row">
+        <div class="col-4 text-center">
+          <i [ngClass]="{
+              'fa-regular': !postData().postLiked,
+              'fa-heart': true,
+              'fa text-danger': postData().postLiked
+            }"
+            (click)="likePost(postData().id)">
+          </i>
+          @if (postLiked()) {
+          <span [ngClass]="{ 'appearLikeCount': postLiked(), 'px-1': true }">
+            {{ (postData().likeCount | textlimiter) }}
+          </span>
+          }
+        </div>
+        <div class="col-4 text-center">
+          <i class="fa-regular fa-comment text-secondary"
+             (click)="cancelComment()"></i>
+        </div>
+        <div class="col-4 text-center">
+          <i class="fa fa-share-nodes text-success px-2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  @if(showComments())
+  {<div
+    class="commentSection"
+    [ngClass]="{ 'comment-open': startAnimating,'comment-close': !startAnimating }"
+  >
+    <div class="userComment d-flex row">
+      <div class="inputComment">
+        <textarea
+          rows="3"
+          [(ngModel)]="userComment"
+          maxlength="256"
+        ></textarea>
+        <div class="textOptions d-flex justify-content-between px-2 align-items-center">
+          <div>
+            <i class="fa fa-bold p-1"></i>
+            <i class="fa fa-italic p-1"></i>
+            <i class="fa fa-underline p-1"></i>
+            <i class="fa fa-link p-1"></i>
+          </div>
+          <div class="p-1">
+            {{ userComment().length }}/256
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex pt-1 col">
+        <button class="col-6 py-1 px-0 btn btn-danger" (click)="cancelComment()">
+          <span class="fw-bold small">CANCEL</span>
+        </button>
+        <button class="col-6 py-1 px-0 btn btn-light" (click)="postComment()">
+          <span class="fw-bold small">COMMENT</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pt-2">
+      @for (comment of audienceComments; track comment.id) {
+      <div class="public-comment">
+        <div class="d-flex">
+          <div class="comment-avatar"></div>
+          <div>
+            <div class="px-1"><strong>{{ comment.user }}</strong></div>
+            <span>{{ comment.comment }}</span>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>}
+</div>
