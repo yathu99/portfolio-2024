@@ -22,9 +22,9 @@
       <div class="row">
         <div class="col-4 text-center">
           <i [ngClass]="{
-              'fa-regular': !postData().postLiked,
+              'fa-regular': !postLiked(),
               'fa-heart': true,
-              'fa text-danger': postData().postLiked
+              'fa text-danger': postLiked()
             }"
             (click)="likePost(postData().id)">
           </i>
